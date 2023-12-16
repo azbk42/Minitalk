@@ -6,7 +6,7 @@
 /*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:00:54 by azbreak           #+#    #+#             */
-/*   Updated: 2023/11/07 14:21:05 by emauduit         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:31:48 by emauduit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int					ft_isalnum(int c);
 
 int					ft_isascii(int c);
 
-int					ft_isdigit(int c);
+int					ft_isdigit(char *c);
 
 size_t				ft_strlen(const char *s);
 

@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/16 14:46:03 by emauduit          #+#    #+#             */
+/*   Updated: 2023/12/16 16:45:30 by emauduit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
-
-int bit_global;
-
+int		g_bit_flag;
 
 void	ft_send_char(int pid, unsigned char c)
 {
@@ -11,7 +21,7 @@ void	ft_send_char(int pid, unsigned char c)
 	i = 8;
 	while (--i >= 0)
 	{
-		bit_global = 0;
+		g_bit_flag = 0;
 		if (kill(pid, 0) == -1)
 		{
 			ft_putstr_fd("Error: Wrong PID", 2);
@@ -21,7 +31,7 @@ void	ft_send_char(int pid, unsigned char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		while (bit_global == 0)
+		while (g_bit_flag == 0)
 			usleep(100);
 	}
 }
@@ -29,17 +39,17 @@ void	ft_send_char(int pid, unsigned char c)
 void	sigclient(int signum)
 {
 	if (signum == SIGUSR1)
-		bit_global = 1;
+		g_bit_flag = 1;
 	else if (signum == SIGUSR2)
 	{
-		ft_printf("\nServer receive correctly your message !\n\n");
+		ft_printf("\nThe server has successfully received the message.\n\n");
 		exit(0);
 	}
 }
 
 void	ft_send_string(int pid, const char *str)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (str[++i])

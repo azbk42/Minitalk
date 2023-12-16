@@ -6,7 +6,7 @@
 /*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 19:39:12 by azbk              #+#    #+#             */
-/*   Updated: 2023/11/13 12:56:53 by emauduit         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:58:09 by emauduit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	ft_putstr(const char *str, int *count)
 		ft_putchar(str[i++], count);
 }
 
-void	print_hexa(int *count, unsigned int long nbr, char letter, unsigned int base)
+void	print_hexa(int *count, unsigned long nbr, char letter,
+		unsigned int base)
 {
 	char	*hexa_min;
 	char	*hexa_maj;

@@ -6,13 +6,21 @@
 /*   By: emauduit <emauduit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:36:47 by emauduit          #+#    #+#             */
-/*   Updated: 2023/11/07 11:46:24 by emauduit         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:45:42 by emauduit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+int	ft_isdigit(char *c)
 {
-	if ((c >= '0' && c <= '9'))
-		return (1);
+	int	i;
+
+	i = 0;
+	while (c[i])
+	{
+		if ((c[i] >= '0' && c[i] <= '9'))
+			i++;
+		else
+			return (1);
+	}
 	return (0);
 }
